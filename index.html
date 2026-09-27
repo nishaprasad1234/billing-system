@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Billing System</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <h1>Billing System</h1>
+        <div class="bill-header">
+        <h2>INVOICE</h2>
+        <P>Bill No: <span id="billNumber"></span></P>
+        <p>Date: <span id="billDate"></span></p>
+        </div>
+        <div class="billing-container">
+            <h3>Customer: <span id="displayCustomer"> </span></h3>
+            <h2>Customer Details</h2>
+            <input type="text" id="customerName" placeholder="Enter Customer Name">
+            <h2>Product Details</h2>
+            <input type="text" id="productName" placeholder="Enter Product Name">
+            <input type="number" id="quantity" placeholder="Quantity">
+            <input type="number" id="price" placeholder="Price">
+            <button onclick="addProduct()">Add Product</button>
+            <table id="billTable">
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th>Total</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                
+                <tbody id="billBody">
+                </tbody>
+            </table>
+
+            <label>Discount (%):</label>
+            <input type="number" id="discount"
+                         placeholder="Enter discount"
+                         min="0" max="100"
+                         oninput="updateGrandTotal()" >
+
+            <label>GST (%):</label>
+            <input type="number"
+                         id="gst"
+                         placeholder="Enter GST"
+                         min="0"
+                         max="100"
+                         oninput="updateGrandTotal()">
+
+            <h3>GST Amount: ₹<span id="getAmount">0</span></h3>
+            <h3>Grand Total: ₹<span id="grandTotal">0</span></h3>
+            <button onclick="clearBill()">Clear Bill</button>
+            <button onclick="window.print()">Print Bill</button>
+        </div>
+        <script src="script.js"></script>
+    </body>
+</html>
